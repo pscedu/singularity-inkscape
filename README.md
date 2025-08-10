@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/github/license/pscedu/singularity-inkscape)
 
 # singularity-inkscape
-Singularity recipe for GIMP.
+Singularity recipe for Inkscape.
 
 ## Installing the container on Bridges 2
 Copy the
@@ -14,9 +14,9 @@ Copy the
 * `SIF` file
 * and the `inkscape` script
 
-to `/opt/packages/inkscape/latest`.
+to `/opt/packages/inkscape/1.2.2`.
 
-Copy the file `modulefile.lua` to `/opt/modulefiles/inkscape` as `latest.lua`.
+Copy the file `modulefile.lua` to `/opt/modulefiles/inkscape` as `1.2.2.lua`.
 
 ## Building the image using the recipe
 ### To build the image locally
