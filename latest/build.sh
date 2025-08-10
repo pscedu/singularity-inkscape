@@ -3,7 +3,7 @@
 # Copyright © 2025 Pittsburgh Supercomputing Center.
 # All Rights Reserved.
 
-IMAGE=singularity-inkscape-latest.sif
+IMAGE=singularity-inkscape-1.2.2.sif
 DEFINITION=Singularity
 
 if [ -f $IMAGE ]; then
