@@ -1,0 +1,27 @@
+Bootstrap: docker
+From: alpine:latest
+
+%labels
+    MAINTAINER icaoberg
+    EMAIL icaoberg@psc.edu
+    SUPPORT help@psc.edu
+    REPOSITORY http://gitub.com/pscedu/singularity-template
+    COPYRIGHT Copyright © 2025 Pittsburgh Supercomputing Center. All Rights Reserved.
+    VERSION version
+
+%environment
+    export LANG=C.UTF-8
+    export LC_ALL=C.UTF-8
+
+%post
+    apk update && \
+    apk upgrade && \
+    apk add --no-cache \
+        bash \
+        curl \
+        wget \
+        git \
+        build-base
+
+%runscript
+    echo "Container built from alpine:latest"

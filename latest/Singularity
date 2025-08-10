@@ -1,0 +1,24 @@
+Bootstrap: docker#
+#From: alpine
+#From: ubuntu:latest
+#From: debian:latest
+
+%labels
+    MAINTAINER icaoberg
+    EMAIL icaoberg@psc.edu
+    SUPPORT help@psc.edu
+    REPOSITORY http://gitub.com/pscedu/singularity-template 
+    COPYRIGHT Copyright © 2025 Pittsburgh Supercomputing Center. All Rights Reserved.
+    VERSION version
+
+%environment
+    export LANG=C.UTF-8
+    export LC_ALL=C.UTF-8
+
+%post
+    export DEBIAN_FRONTEND=noninteractive && apt-get update && \
+        apt-get install -y --no-install-recommends && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+
+%runscript
+    exec <PATH-TO-TOOL> "$@"
