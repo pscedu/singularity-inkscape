@@ -1,24 +1,55 @@
-Bootstrap: docker#
-#From: alpine
-#From: ubuntu:latest
-#From: debian:latest
+Bootstrap: docker
+From: debian:latest
 
 %labels
     MAINTAINER icaoberg
     EMAIL icaoberg@psc.edu
     SUPPORT help@psc.edu
-    REPOSITORY http://gitub.com/pscedu/singularity-template 
+    REPOSITORY http://github.com/pscedu/singularity-inkscape
     COPYRIGHT Copyright © 2025 Pittsburgh Supercomputing Center. All Rights Reserved.
     VERSION version
+
+%help
+    This container provides a minimal Debian-based Inkscape installation
+    suitable for headless SVG conversions (PNG/PDF).
+
+    Examples:
+      # Show Inkscape version
+      singularity exec singularity-inkscape.sif inkscape --version
+
+      # Convert SVG to PNG
+      singularity exec singularity-inkscape.sif inkscape input.svg -o output.png
+
+      # Convert SVG to PDF
+      singularity exec singularity-inkscape.sif inkscape input.svg -o output.pdf
+
+    All Inkscape CLI options are available:
+      singularity exec singularity-inkscape.sif inkscape --help
 
 %environment
     export LANG=C.UTF-8
     export LC_ALL=C.UTF-8
+    export PATH=/usr/bin:$PATH
+    export DEBIAN_FRONTEND=noninteractive
 
 %post
-    export DEBIAN_FRONTEND=noninteractive && apt-get update && \
-        apt-get install -y --no-install-recommends && apt-get clean && rm -rf /var/lib/apt/lists/*
+    set -eux
 
+    # Base tools, Inkscape, and fonts (no recommends to keep size small)
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        inkscape \
+        fontconfig \
+        fonts-dejavu \
+        ca-certificates \
+        tini \
+        bash
+    update-ca-certificates
+
+    # Clean apt caches
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
 
 %runscript
-    exec <PATH-TO-TOOL> "$@"
+    # Pass all args through tini to inkscape
+    exec /usr/bin/tini -- /usr/bin/inkscape "$@"

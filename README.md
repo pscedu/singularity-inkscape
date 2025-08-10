@@ -1,22 +1,22 @@
-![Status](https://github.com/pscedu/singularity-template/actions/workflows/main.yml/badge.svg)
-![Status](https://github.com/pscedu/singularity-template/actions/workflows/pretty.yml/badge.svg)
-![Issue](https://img.shields.io/github/issues/pscedu/singularity-template)
-![forks](https://img.shields.io/github/forks/pscedu/singularity-template)
-![Stars](https://img.shields.io/github/stars/pscedu/singularity-template)
-![License](https://img.shields.io/github/license/pscedu/singularity-template)
+![Status](https://github.com/pscedu/singularity-inkscape/actions/workflows/main.yml/badge.svg)
+![Status](https://github.com/pscedu/singularity-inkscape/actions/workflows/pretty.yml/badge.svg)
+![Issue](https://img.shields.io/github/issues/pscedu/singularity-inkscape)
+![forks](https://img.shields.io/github/forks/pscedu/singularity-inkscape)
+![Stars](https://img.shields.io/github/stars/pscedu/singularity-inkscape)
+![License](https://img.shields.io/github/license/pscedu/singularity-inkscape)
 
-# singularity-template
+# singularity-inkscape
 Singularity recipe for GIMP.
 
 ## Installing the container on Bridges 2
 Copy the
 
 * `SIF` file
-* and the `template` script
+* and the `inkscape` script
 
-to `/opt/packages/template/latest`.
+to `/opt/packages/inkscape/latest`.
 
-Copy the file `modulefile.lua` to `/opt/modulefiles/template` as `latest.lua`.
+Copy the file `modulefile.lua` to `/opt/modulefiles/inkscape` as `latest.lua`.
 
 ## Building the image using the recipe
 ### To build the image locally

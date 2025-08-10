@@ -1,11 +1,11 @@
 --
--- TEMPLATE VERSION modulefile
+-- inkscape VERSION modulefile
 --
 -- "URL: https://www.psc.edu/resources/software"
 -- "Category: CATEGORY"
 -- "Description: DESCRIPTION"
 
-whatis("Name: template")
+whatis("Name: inkscape")
 whatis("Version: VERSION")
 whatis("Category: Graphics")
 whatis("URL: https://www.psc.edu/resources/software")
@@ -16,18 +16,18 @@ DESCRIPTION
 
 To load the module type
 
-> module load template/VERSION
+> module load inkscape/VERSION
 
 To unload the module type
 
-> module unload template/VERSION
+> module unload inkscape/VERSION
 
 Tools included in this module are
 
-* template
+* inkscape
 ]])
 
-local package = "TEMPLATE"
+local package = "inkscape"
 local version = "VERSION"
 local base    = pathJoin("/opt/packages", package, version)
 
